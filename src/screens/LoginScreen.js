@@ -3,7 +3,11 @@ import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
 import colors from "../assets/colors/colors";
 import PhoneInput from "../components/PhoneInput";
 import NextButton from "../components/NextButton";
-const LoginScreens = () => {
+const LoginScreens = ({ navigation }) => {
+  const goHome = () => {
+    navigation.navigate("Home");
+  };
+
   return (
     <View style={{ flex: 1 }}>
       <ImageBackground
@@ -23,7 +27,7 @@ const LoginScreens = () => {
           <Text style={styles.numbertext}>Telefon Numarası</Text>
         </View>
         <PhoneInput />
-        <NextButton />
+        <NextButton onPress={goHome} />
         <View style={styles.signin}>
           <Text style={styles.signintext}>Veya Giriş Yap</Text>
         </View>

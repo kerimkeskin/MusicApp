@@ -21,7 +21,7 @@ const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;
 
 const WelcomeScreen = ({ navigation }) => {
-  const goHome = () => {
+  const goLogin = () => {
     navigation.navigate("Login");
   };
 
@@ -54,7 +54,7 @@ const WelcomeScreen = ({ navigation }) => {
                   şeyi kaçırmayın
                 </Text>
               </View>
-              <StartButton goHome={goHome} />
+              <StartButton goLogin={goLogin} />
             </View>
           </View>
         </ImageBackground>

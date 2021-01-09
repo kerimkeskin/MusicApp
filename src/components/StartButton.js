@@ -1,12 +1,12 @@
 import React from "react";
 import { StyleSheet, Text, View ,TouchableOpacity} from "react-native";
 import colors from "../assets/colors/colors";
-const StartButton = ({goHome}) => {
+const StartButton = ({goLogin}) => {
   return (
     <View style={styles.buttoncontainer}>
       <TouchableOpacity
         activeOpacity="0.75"
-        onPress={goHome}
+        onPress={goLogin}
         style={styles.bodybutton}
       >
         <Text style={styles.buttontext}>Başla</Text>
