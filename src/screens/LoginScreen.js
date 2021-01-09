@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
 import colors from "../assets/colors/colors";
 import PhoneInput from "../components/PhoneInput";
-
+import NextButton from "../components/NextButton";
 const LoginScreens = () => {
   return (
     <View style={{ flex: 1 }}>
@@ -23,6 +23,10 @@ const LoginScreens = () => {
           <Text style={styles.numbertext}>Telefon Numarası</Text>
         </View>
         <PhoneInput />
+        <NextButton />
+        <View style={styles.signin}>
+          <Text style={styles.signintext}>Veya Giriş Yap</Text>
+        </View>
       </ImageBackground>
     </View>
   );
@@ -65,6 +69,19 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     fontSize: 16,
     lineHeight: 19,
+  },
+  signin: {
+    position: "absolute",
+
+    width: 170,
+    height: 35,
+    left: 43,
+    top: 685,
+  },
+  signintext: {
+    color: "#fff",
+    fontSize: 20,
+    fontWeight: "500",
   },
 });
 
