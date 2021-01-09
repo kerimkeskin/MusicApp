@@ -15,7 +15,7 @@ import {
   Montserrat_600SemiBold,
   Montserrat_800ExtraBold,
 } from "@expo-google-fonts/montserrat";
-import colors from "../assets/colors/colors";
+import StartButton from "../components/StartButton";
 
 const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;
@@ -54,11 +54,7 @@ const WelcomeScreen = ({ navigation }) => {
                   şeyi kaçırmayın
                 </Text>
               </View>
-              <View style={styles.buttoncontainer}>
-                <TouchableOpacity onPress={goHome} style={styles.bodybutton}>
-                  <Text style={styles.buttontext}>Başla</Text>
-                </TouchableOpacity>
-              </View>
+              <StartButton goHome={goHome} />
             </View>
           </View>
         </ImageBackground>
@@ -110,23 +106,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "white",
     textAlign: "left",
-  },
-  buttoncontainer: {
-    flex: 1,
-    justifyContent: "flex-end",
-  },
-  bodybutton: {
-    width: 310,
-    height: 58,
-    backgroundColor: colors.pink,
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttontext: {
-    color: "#fff",
-    fontWeight: "bold",
-    fontSize: 20,
   },
 });
 
