@@ -4,10 +4,10 @@ import {
   Text,
   View,
   ImageBackground,
-  SafeAreaView,
   Image,
   Dimensions,
   ActivityIndicator,
+  TouchableOpacity,
 } from "react-native";
 import {
   useFonts,
@@ -15,11 +15,16 @@ import {
   Montserrat_600SemiBold,
   Montserrat_800ExtraBold,
 } from "@expo-google-fonts/montserrat";
+import colors from "../assets/colors/colors";
 
 const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
+  const goHome = () => {
+    navigation.navigate("Login");
+  };
+
   let [fontsLoaded] = useFonts({
     Montserrat_700Bold,
     Montserrat_600SemiBold,
@@ -32,12 +37,12 @@ const WelcomeScreen = () => {
     return (
       <View style={styles.container}>
         <ImageBackground
-          source={require("../../assets/welcomebg.png")}
+          source={require("../assets/images/welcomebg.png")}
           style={styles.background}
         >
           <View>
             <View style={styles.headercontainer}>
-              <Image source={require("../../assets/header.png")} />
+              <Image source={require("../assets/images/header.png")} />
             </View>
             <View style={styles.body}>
               <View style={styles.bodytitlebox}>
@@ -49,7 +54,11 @@ const WelcomeScreen = () => {
                   şeyi kaçırmayın
                 </Text>
               </View>
-              <View style={styles.bodybutton}></View>
+              <View style={styles.buttoncontainer}>
+                <TouchableOpacity onPress={goHome} style={styles.bodybutton}>
+                  <Text style={styles.buttontext}>Başla</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
         </ImageBackground>
@@ -68,7 +77,6 @@ const styles = StyleSheet.create({
     right: 0,
     left: 0,
     bottom: 0,
-    backgroundColor: "#01012A",
   },
   headercontainer: {
     width: "100%",
@@ -103,7 +111,23 @@ const styles = StyleSheet.create({
     color: "white",
     textAlign: "left",
   },
-  bodybutton: {},
+  buttoncontainer: {
+    flex: 1,
+    justifyContent: "flex-end",
+  },
+  bodybutton: {
+    width: 310,
+    height: 58,
+    backgroundColor: colors.pink,
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttontext: {
+    color: "#fff",
+    fontWeight: "bold",
+    fontSize: 20,
+  },
 });
 
 export default WelcomeScreen;
