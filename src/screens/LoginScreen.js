@@ -1,5 +1,12 @@
 import React from "react";
-import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ImageBackground,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import colors from "../assets/colors/colors";
 import PhoneInput from "../components/PhoneInput";
 import NextButton from "../components/NextButton";
@@ -28,9 +35,9 @@ const LoginScreens = ({ navigation }) => {
         </View>
         <PhoneInput />
         <NextButton onPress={goHome} />
-        <View style={styles.signin}>
+        <TouchableOpacity style={styles.signin}>
           <Text style={styles.signintext}>Veya Giriş Yap</Text>
-        </View>
+        </TouchableOpacity>
       </ImageBackground>
     </View>
   );

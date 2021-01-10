@@ -19,6 +19,7 @@ const SideTab = () => {
       </TouchableOpacity>
       <TouchableOpacity style={{ alignItems: "center" }}>
         <Text style={[styles.text, { top: 627 }]}>Popüler</Text>
+        <View style={styles.focus}></View>
       </TouchableOpacity>
     </View>
   );
@@ -48,6 +49,14 @@ const styles = StyleSheet.create({
     top: 345,
     fontSize: 20,
     lineHeight: 24,
+  },
+  focus: {
+    width: 15,
+    height: 15,
+    borderRadius: 40,
+    backgroundColor: colors.turquoise,
+    position: "absolute",
+    top: 702,
   },
 });
 
