@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import colors from "../assets/colors/colors";
-const StationCard = () => {
+const StationCard = ({ color, station, rad_name }) => {
   const [focus, setfocus] = useState(true);
-  
+
   const isfocused = { backgroundColor: colors.pink, borderWidth: 0 };
   const notfocused = { backgroundColor: colors.bg_blue, borderWidth: 2 };
 
@@ -12,14 +12,13 @@ const StationCard = () => {
     <TouchableOpacity
       onPress={() => {
         setfocus(!focus);
-        // setnumber(number + 1);
       }}
       activeOpacity="1"
       style={[styles.container, focus ? isfocused : notfocused]}
     >
       <View style={styles.icon}>
         {focus ? (
-          <AntDesign name="heart" size={20} color={colors.bg_blue} />
+          <AntDesign name="heart" size={20} color="white" />
         ) : (
           <AntDesign name="hearto" size={20} color="white" />
         )}
@@ -33,7 +32,7 @@ const StationCard = () => {
             color: focus ? "#fff" : "rgba(255, 255, 255, 0.2)",
           }}
         >
-          90.36
+          {station}
         </Text>
       </View>
       <View style={styles.namewrapper}>
@@ -46,17 +45,23 @@ const StationCard = () => {
             textAlign: "center",
           }}
         >
-          lorem ipsum
+          {rad_name}
         </Text>
       </View>
       <View style={styles.vector}>
-        <View style={styles.circle}></View>
+        <View style={[styles.circle, { backgroundColor: `${color}` }]}></View>
         {focus ? (
           <Image source={require("../assets/images/vector.png")} />
         ) : (
           <Image source={require("../assets/images/Vector-gray.png")} />
         )}
-        <View style={[styles.circle, { left: 107 }]}></View>
+        <View
+          style={[
+            styles.circle,
+            { backgroundColor: `${color}` },
+            { left: 107 },
+          ]}
+        ></View>
       </View>
     </TouchableOpacity>
   );
@@ -68,6 +73,8 @@ const styles = StyleSheet.create({
     height: 139,
     borderRadius: 15,
     borderColor: colors.border_gray,
+    marginEnd: 15,
+    marginTop: 15,
   },
   frequency: {
     width: 66,
@@ -96,7 +103,6 @@ const styles = StyleSheet.create({
     width: 8.25,
     height: 8.25,
     borderRadius: 30,
-    backgroundColor: "#2135f3",
   },
   icon: {
     right: 10,

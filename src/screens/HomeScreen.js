@@ -1,8 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import SideTab from "../components/SideTab";
 import colors from "../assets/colors/colors";
 import StationCard from "../components/StationCard";
+import PlayStopButton from "../components/PlayStopButton";
+
+import SliderComponent from "../components/SliderComponent";
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
@@ -15,9 +18,22 @@ const HomeScreen = () => {
       <View style={styles.boxtitle}>
         <Text style={styles.title}>Popüler</Text>
       </View>
-      <View style={styles.stationcontainer}>
-        <StationCard />
-      </View>
+      <ScrollView style={styles.stationcontainer}>
+        <View style={{ flexDirection: "row" }}>
+          <StationCard color="purple" station="96.4" rad_name="Slow Türk" />
+          <StationCard color="yellow" station="92.0" rad_name="Kral FM" />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <StationCard color="red" station="89.0" rad_name="Joy Türk" />
+          <StationCard color="green" station="90.8" rad_name="Süper FM" />
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <StationCard color="orange" station="87.5" rad_name="Damla FM" />
+          <StationCard color="gray" station="97.2" rad_name="Metro FM" />
+        </View>
+      </ScrollView>
+      <PlayStopButton />
+      <SliderComponent />
     </View>
   );
 };
