@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import colors from "../assets/colors/colors";
+
 const PlayStopButton = () => {
   const [play, setplay] = useState(true);
 
@@ -21,9 +21,13 @@ const PlayStopButton = () => {
       </View>
       <View style={styles.icon}>
         {play ? (
-          <FontAwesome5 onPress={change} name="play" size={24} color="white" />
+          <TouchableOpacity onPress={change}>
+            <FontAwesome5 name="play" size={24} color="white" />
+          </TouchableOpacity>
         ) : (
-          <FontAwesome5 onPress={change} name="stop" size={24} color="white" />
+          <TouchableOpacity onPress={change}>
+            <FontAwesome5 name="stop" size={24} color="white" />
+          </TouchableOpacity>
         )}
       </View>
     </View>

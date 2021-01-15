@@ -1,19 +1,22 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Image } from "react-native";
 import SideTab from "../components/SideTab";
 import colors from "../assets/colors/colors";
 import StationCard from "../components/StationCard";
 import PlayStopButton from "../components/PlayStopButton";
 
 import SliderComponent from "../components/SliderComponent";
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <SideTab />
+      <SideTab onPress={() => navigation.navigate("Detail")} />
       <View style={styles.header}>
         <Text style={styles.headertext}>Merhaba</Text>
         <Text style={[styles.headertext, { color: colors.pink }]}>KESKİN</Text>
-        <View style={styles.pp}></View>
+        <Image
+          style={styles.pp}
+          source={require("../assets/images/profile.png")}
+        />
       </View>
       <View style={styles.boxtitle}>
         <Text style={styles.title}>Popüler</Text>

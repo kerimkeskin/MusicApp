@@ -7,7 +7,6 @@ import {
   Image,
   Dimensions,
   ActivityIndicator,
-  TouchableOpacity,
 } from "react-native";
 import {
   useFonts,
@@ -17,7 +16,6 @@ import {
 } from "@expo-google-fonts/montserrat";
 import StartButton from "../components/StartButton";
 
-const Width = Dimensions.get("window").width;
 const Height = Dimensions.get("window").height;
 
 const WelcomeScreen = ({ navigation }) => {

@@ -2,10 +2,10 @@ import React from "react";
 import { StyleSheet, Image, View, Text, TouchableOpacity } from "react-native";
 import colors from "../assets/colors/colors";
 
-const SideTab = () => {
+const SideTab = ({ onPress }) => {
   return (
     <View style={styles.container}>
-      <View style={{}}>
+      <View>
         <Image
           style={styles.playicon}
           source={require("../assets/images/play-icon-mini.png")}
@@ -17,7 +17,7 @@ const SideTab = () => {
       <TouchableOpacity style={{ alignItems: "center" }}>
         <Text style={[styles.text, { top: 497 }]}>Favoriler</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={{ alignItems: "center" }}>
+      <TouchableOpacity onPress={onPress} style={{ alignItems: "center" }}>
         <Text style={[styles.text, { top: 627 }]}>Popüler</Text>
         <View style={styles.focus}></View>
       </TouchableOpacity>

@@ -30,7 +30,11 @@ const Navigator = () => {
           name="Home"
           component={HomeScreen}
         />
-        <Stack.Screen name="Detail" component={DetailScreen} />
+        <Stack.Screen
+          options={{ headerShown: false }}
+          name="Detail"
+          component={DetailScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
